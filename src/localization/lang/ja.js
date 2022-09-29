@@ -15,7 +15,7 @@ const ja = {
     phone_number: '電話番号',
     website:'Webサイト',
     auth: {
-      welcome: 'Grune Laravel Starter Kit (SPA version)',
+      welcome: 'ログインページ',
       signInMessage: 'アカウントにサインイン',
       email: 'メールアドレス',
       password: 'パスワード',

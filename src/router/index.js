@@ -14,6 +14,8 @@ import auth from './auth';
 import AdminAppBase from '@views/admin/_layouts/AppBase';
 import AdminDashboard from '@views/admin/Dashboard';
 
+import Todo from '@views/study/Todo'
+
 import { guards as availableGuards } from '@/store/modules/auth';
 
 Vue.use(VueRouter);
@@ -24,7 +26,7 @@ Vue.use(VueRouter);
  */
 const routes = [
   {
-    path: '/',
+    path: '/home',
     name: 'home',
     component: AppBase,
     meta: {
@@ -61,6 +63,11 @@ const routes = [
         component: AdminDashboard,
       },
     ],
+  },
+  {
+    path: '/',
+    name: 'todo',
+    component: Todo,
   },
   ...auth,
   ...errors,
