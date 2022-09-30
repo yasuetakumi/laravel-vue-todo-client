@@ -8,7 +8,7 @@ const cookieAuth = {
   async login(credentials, guard) {
     let loginEndpoint = guard !== '' ? `${laravelURL}/${guard}/login` : `${laravelURL}/login`;
     try {
-      const csrfCookie = await Vue.axios.get(`${laravelURL}/api/sanctum/csrf-cookie`);
+      const csrfCookie = await Vue.axios.get(`${laravelURL}/sanctum/csrf-cookie`);
       if (csrfCookie) {
         const login = await Vue.axios.post(loginEndpoint, credentials);
         if (login.data.status) {
