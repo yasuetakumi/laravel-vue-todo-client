@@ -1,5 +1,5 @@
 import Vue from 'vue';
-const laravelURL = 'https://laravel-vue-todo-api-production.up.railway.app' 
+const laravelURL = 'https://laravel-vue-todo-api-production.up.railway.app/api' 
 
 /*
  * A cookie based auth using native laravel session

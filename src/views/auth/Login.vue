@@ -67,7 +67,7 @@ import LocaleSelector from '@components/LocaleSelector.vue';
 import GDebugLabel from '@views/_components/GDebugLabel.vue';
 import Vue from 'vue';
 
-const laravelURL = 'https://laravel-vue-todo-api-production.up.railway.app' 
+const laravelURL = 'https://laravel-vue-todo-api-production.up.railway.app/api' 
 
 export default {
   components: { LocaleSelector, GDebugLabel },
@@ -105,7 +105,7 @@ export default {
         return;
       }
       try {
-        const res = await Vue.axios.get(`${laravelURL}/api/hand-shake`);
+        const res = await Vue.axios.get(`${laravelURL}/hand-shake`);
         if (res.data.result == '___SUCCESS___') {
           this.loading_hand_shake = false;
         } else {
