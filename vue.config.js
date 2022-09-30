@@ -15,11 +15,11 @@ module.exports = {
     },
     devtool: 'source-map', // for debug on web browser
   },
-  devServer: {
-    proxy: {
-      "/api/": {
-        target: "https://laravel-vue-todo-api-production.up.railway.app",
-      }
-    }
-  }
+  // devServer: {
+  //   proxy: {
+  //     "/api/": {
+  //       target: "https://laravel-vue-todo-api-production.up.railway.app",
+  //     }
+  //   }
+  // }
 };
