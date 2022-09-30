@@ -1,13 +1,14 @@
 import Vue from 'vue';
+const laravelURL = 'https://laravel-vue-todo-api-production.up.railway.app' 
 
 /*
  * A cookie based auth using native laravel session
  */
 const cookieAuth = {
   async login(credentials, guard) {
-    let loginEndpoint = guard !== '' ? `${guard}/login` : 'login';
+    let loginEndpoint = guard !== '' ? `${laravelURL}/${guard}/login` : `${laravelURL}/login`;
     try {
-      const csrfCookie = await Vue.axios.get('sanctum/csrf-cookie');
+      const csrfCookie = await Vue.axios.get(`${laravelURL}/api/sanctum/csrf-cookie`);
       if (csrfCookie) {
         const login = await Vue.axios.post(loginEndpoint, credentials);
         if (login.data.status) {
@@ -25,7 +26,7 @@ const cookieAuth = {
   },
 
   async logout(guard) {
-    let logoutEndpoint = guard !== '' ? `${guard}/logout` : 'logout';
+    let logoutEndpoint = guard !== '' ? `${laravelURL}/${guard}/logout` : `${laravelURL}/logout`;
     try {
       const res = await Vue.axios.get(logoutEndpoint);
       if (res.status) {
@@ -49,7 +50,7 @@ const cookieAuth = {
 
   async checkAuth() {
     try {
-      const res = await Vue.axios.get('/auth-check');
+      const res = await Vue.axios.get(`${laravelURL}/auth-check`);
       console.log(res);
       return res.data;
     } catch (err) {
