@@ -188,7 +188,9 @@ export default {
 
   methods: {
     editItem(item) {
+      console.log(item);
       this.editedIndex = this.todos.indexOf(item);
+      console.log(this.editedIndex);
       this.editedItem = Object.assign({}, item);
       this.dialog = true;
       this.editName = this.todos[this.editedIndex].name;
