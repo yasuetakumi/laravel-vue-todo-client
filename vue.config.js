@@ -18,7 +18,7 @@ module.exports = {
   // devServer: {
   //   proxy: {
   //     "/api/": {
-  //       target: "https://laravel-vue-todo-api-production.up.railway.app",
+  //       target: "https://laravel-vue-todo-api-production.up.railway.app/api",
   //     }
   //   }
   // }

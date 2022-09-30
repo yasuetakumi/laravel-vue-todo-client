@@ -12,6 +12,11 @@ const { isNavigationFailure } = VueRouter;
   - X-XSRF-TOKEN: Automatically set from cookie-value by axios. Laravel refer it if there is no X-CSRF-TOKEN.
       -> Normally, we don't have to specify token because it is appended automatically by axios.
 */
+
+axios.defaults.withCredentials = true;
+axios.defaults.xsrfHeaderName = "X-CSRF-Token";
+Vue.prototype.$axios = axios;
+
 const config = {
   withCredentials: true,
   crossDomain: true,

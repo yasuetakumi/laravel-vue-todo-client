@@ -112,6 +112,7 @@
 
 <script>
 import Vue from 'vue';
+const laravelURL = 'https://laravel-vue-todo-api-production.up.railway.app' 
 export default {
   data: () => ({
     editName: '',
@@ -169,7 +170,7 @@ export default {
   },
 
   created() {
-    Vue.axios.get('/todo/list')
+    Vue.axios.get(`${laravelURL}/api/todo/list`)
     .then( response => {
       response.data.map( item => {
         let todo = {
@@ -202,7 +203,7 @@ export default {
 
     deleteItemConfirm() {
       this.todos.splice(this.editedIndex, 1);
-      Vue.axios.post('/todo/delete', {
+      Vue.axios.post(`${laravelURL}/api/todo/delete`, {
         name: this.deleteName
       });
       this.closeDelete();
@@ -227,7 +228,7 @@ export default {
     save() {
       if (this.editedIndex > -1) {
         Object.assign(this.todos[this.editedIndex], this.editedItem);
-        Vue.axios.post('/todo/update', {
+        Vue.axios.post(`${laravelURL}/api/todo/update`, {
           editName: this.editName,
           id: this.editedItem.id,
           name: this.editedItem.name,
@@ -238,7 +239,7 @@ export default {
         })
       } else {
         this.todos.push(this.editedItem);
-        Vue.axios.post('/todo/store', {
+        Vue.axios.post(`${laravelURL}/api/todo/store`, {
           id: this.editedItem.id,
           name: this.editedItem.name,
           startDate: this.editedItem.startDate,
